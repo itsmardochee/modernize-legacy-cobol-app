@@ -3,5 +3,10 @@
     "codespace",
     "Codespace",
     "devcontainer"
-  ]
+  ],
+  "python.testing.pytestArgs": [
+    "python-accounting-app"
+  ],
+  "python.testing.unittestEnabled": false,
+  "python.testing.pytestEnabled": true
 }

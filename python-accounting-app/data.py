@@ -20,8 +20,8 @@ class DataProgram:
         self.operation_type = ""
         
         # Enhanced persistence - store data in JSON file for session persistence
-        self.data_file = '/workspaces/modernize-legacy-cobol-app/account_data.json'
-        self._load_data()
+        # self.data_file = '/workspaces/modernize-legacy-cobol-app/account_data.json'
+        # self._load_data()
     
     def _format_currency(self, value):
         """Format decimal value to 2 decimal places like COBOL PIC 9(6)V99"""
@@ -79,8 +79,8 @@ class DataProgram:
         # MOVE BALANCE TO STORAGE-BALANCE
         self.storage_balance = self._format_currency(balance)
         
-        # Enhanced: Persist to file
-        self._save_data()
+        # # Enhanced: Persist to file
+        # self._save_data()
         
         return self.storage_balance
     
