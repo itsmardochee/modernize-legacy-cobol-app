@@ -59,7 +59,7 @@ class TestOperations:
         assert "Current balance: 1200.00" in captured.out
     
     @pytest.mark.unit
-    @patch('builtins.input', return_value='250.50')
+    @patch('builtins.input', side_effect=lambda prompt: print(prompt) or'250.50')
     def test_credit_operation_tc_cre_001(self, mock_input, operations, mock_data_program, capsys):
         """TC_CRE_001: Valid credit amount - 250.50"""
         mock_data_program.execute_operation.side_effect = [Decimal('1000.00'), Decimal('1250.50')]
@@ -113,7 +113,7 @@ class TestOperations:
         assert "Amount credited" in captured.out
     
     @pytest.mark.unit
-    @patch('builtins.input', return_value='200.00')
+    @patch('builtins.input', side_effect=lambda prompt: print(prompt) or'200.00')
     def test_debit_operation_tc_deb_001(self, mock_input, operations, mock_data_program, capsys):
         """TC_DEB_001: Valid debit with sufficient funds - 200.00"""
         mock_data_program.execute_operation.side_effect = [Decimal('1000.00'), Decimal('800.00')]

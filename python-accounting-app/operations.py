@@ -4,7 +4,7 @@ Operations Module - Business Logic for Account Management
 Converted from COBOL Operations (operations.cob)
 """
 
-from decimal import Decimal, ROUND_HALF_UP
+from decimal import Decimal, ROUND_HALF_UP, InvalidOperation
 from data import DataProgram
 
 
@@ -39,7 +39,7 @@ class Operations:
                 
                 return self._format_currency(amount)
                 
-            except (ValueError, TypeError):
+            except (ValueError, TypeError, InvalidOperation):
                 print("Invalid amount format. Please enter a valid number.")
                 continue
     
