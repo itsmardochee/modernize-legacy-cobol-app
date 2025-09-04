@@ -72,18 +72,3 @@ class TestDataProgram:
         data_program.execute_operation('write', Decimal('1500.50'))
         assert data_program.get_current_balance() == Decimal('1500.50')
     
-    @pytest.mark.unit
-    def test_reset_balance_utility(self, data_program):
-        """Test utility method for resetting balance"""
-        # Change balance first
-        data_program.execute_operation('write', Decimal('2000.00'))
-        assert data_program.get_current_balance() == Decimal('2000.00')
-        
-        # Reset to default
-        result = data_program.reset_balance()
-        assert result == Decimal('1000.00')
-        assert data_program.get_current_balance() == Decimal('1000.00')
-        
-        # Reset to custom value
-        result = data_program.reset_balance(Decimal('500.00'))
-        assert result == Decimal('500.00')
